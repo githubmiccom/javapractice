@@ -1,0 +1,52 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+
+plugins {
+//    println springBootVersion
+    id 'java'
+    id 'org.springframework.boot' version '2.1.2.RELEASE'
+    id 'io.spring.dependency-management' version "1.0.6.RELEASE"
+}
+
+repositories {
+    mavenCentral()
+}
+//Plugin Repositories (could not resolve plugin artifact 'org.springframework.boot:org.springframework.boot.gradle.plugin:${ext.springBootVersion}')
+
+group 'javapractice'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+
+
+task runApp(type: JavaExec) {
+    group = 'build'
+
+    dependsOn 'build'
+    dependsOn 'classes'
+
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'springbook.SpringBookMain'
+}
+
+dependencies {
+    //Spring deps
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.1.2.RELEASE'
+    testCompile group: 'org.springframework.boot', name:'spring-boot-starter-test' , version: '2.1.2.RELEASE'
+
+    //Non-spring deps
+    compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.0'
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.23'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

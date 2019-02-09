@@ -1,0 +1,18 @@
+spring:
+  profiles: test
+name: test-YAML
+environment: test
+database:
+  url: 'jdbc:mysql://localhost'
+  id: 'toby'
+  passwd: 'tobyspring'
+
+---
+spring:
+  profiles: prod
+name: prod-YAML
+environment: production
+database:
+  url: 'jdbc:mysql://localhost'
+  id: 'toby'
+  passwd: 'tobyspring'

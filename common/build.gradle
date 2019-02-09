@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'javapractice'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+task runApp(type:JavaExec){
+    group='build'
+
+    dependsOn classes
+    dependsOn build
+
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.mykcom.javapractice.main.PracticeMain'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
