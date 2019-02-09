@@ -3,7 +3,7 @@ spring:
 name: test-YAML
 environment: test
 database:
-  url: 'jdbc:mysql://localhost'
+  url: 'jdbc:mysql://localhost/tobyspring'
   id: 'toby'
   passwd: 'tobyspring'
 
@@ -13,6 +13,6 @@ spring:
 name: prod-YAML
 environment: production
 database:
-  url: 'jdbc:mysql://localhost'
+  url: 'jdbc:mysql://localhost/tobyspring'
   id: 'toby'
   passwd: 'tobyspring'
